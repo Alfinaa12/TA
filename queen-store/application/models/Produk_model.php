@@ -3,24 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         
 class Produk_model extends CI_Model 
 {
-    public function insertCart($id)
+    public function get_produk_by_id($id)
     {
-        //cek apakah produk ID tersebut ada di table cart tidak ?
-        $checkProduk = $this->checkProduk($id);
-        $qty = 1;
-        
-        if ($checkProduk >= 1) {
-            $qty = $checkProduk + 1;
-        }
+        // $this->db->join('gambar', 'gambar.id_produk = produk.id', 'left');
+        $this->db->where('id', $id);
+        $q = $this->db->get('produk');
 
-        $data = array(
-            'id_produk'=> $id,
-            'id_user'=> $this->session->userdata('id_user'),
-            'qty' => $qty
-        );
-    
-        return $this->db->insert('cart', $data);
-    }                
+        return $q->row_array();
+    }
     
     public function get_produk($limit = null)
     {
@@ -46,7 +36,15 @@ class Produk_model extends CI_Model
     public function checkProduk($id)
     {
         //select count(*) from cart where id = $id
-        return $this->db->get_where('cart', ['id' => $id])->num_rows();
+        return $this->db->get_where('cart', [
+            'id_produk' => $id,
+            'id_user' => $this->session->userdata('id_user')
+        ])->num_rows();
+    }
+
+    public function get_detail($id)
+    {
+        return $this->db->get_where('produk', ['id' => $id])->row_array();
     }
 }
 

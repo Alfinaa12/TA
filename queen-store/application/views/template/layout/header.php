@@ -25,11 +25,11 @@
             <p>QUEEN STORE</p>
         </a>
         <nav class="navbar">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#product">Product</a>
-            <a href="#orders">Orders</a>
-            <a href="#contact">Contact</a>
+            <a href="<?php echo base_url(); ?>">Home</a>
+            <a href="<?php echo base_url(); ?>#about">About</a>
+            <a href="<?php echo base_url(); ?>#product">Product</a>
+            <a href="<?php echo base_url(); ?>#orders">Orders</a>
+            <a href="<?php echo base_url(); ?>#contact">Contact</a>
             <a href="review">Review</a>
 
         </nav>
@@ -54,31 +54,21 @@
 
 
         <div class="cart-items-container">
-            <div class="cart-item">
-                <span class="fas fa-times"></span>
-                <img src="<?php echo base_url(); ?>assets/img/gta5.jpg" alt="">
-                <div class="content">
-                    <h3>cart item 01</h3>
-                    <div class="price">Rp.225.000</div>
-                </div>
-            </div>
-            <div class="cart-item">
-                <span class="fas fa-times"></span>
-                <img src="<?php echo base_url(); ?>assets/img/thesimsPapat.png" alt="">
-                <div class="content">
-                    <h3>cart item 02</h3>
-                    <div class="price">Rp.50.000</div>
-                </div>
-            </div>
-            <div class="cart-item">
-                <span class="fas fa-times"></span>
-                <img src="<?php echo base_url(); ?>assets/img/aspalt.jpg" alt="">
-                <div class="content">
-                    <h3>cart item 03</h3>
-                    <div class="price">Rp.200.000/pcs</div>
-                </div>
-            </div>
-            <a href="#" class="btn">Checkut sekarang</a>
+            <?php
+                $cart = get_cart();
+                if (!empty($cart)) :
+                    foreach ($cart as $key => $c) :
+            ?>
+                    <div class="cart-item">
+                        <span class="fas fa-times"></span>
+                        <img src="<?php echo base_url(); ?>assets/img/gta5.jpg" alt="">
+                        <div class="content">
+                            <h3><?php echo $c->nama; ?> <sub>(<?php echo $c->qty; ?>)</sub></h3>
+                            <div class="price"><?php echo "Rp. ".number_format($c->harga); ?></div>
+                        </div>
+                    </div>
+            <?php endforeach; endif; ?>
+            <a href="<?php echo base_url();?>index.php/cart/index" class="btn">Lihat Keranjang</a>
         </div>
 
     </header>

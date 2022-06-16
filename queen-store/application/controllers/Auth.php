@@ -11,6 +11,10 @@ class Auth extends CI_Controller {
 
     public function index()
     {
+        if (is_logged_in()) {
+            $this->session->set_flashdata('success', 'Anda sudah login !');
+            redirect('/home');
+        }
         $this->load->view('template/auth/login');
     }
 

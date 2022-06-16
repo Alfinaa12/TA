@@ -12,7 +12,7 @@ class Home extends CI_Controller {
 
     public function index()
     {
-        $data['produk'] = $this->model->get_produk();
+        $data['produk'] = $this->model->get_produk(8);
         
         $this->template->load('home/index', $data);
     }

@@ -14,15 +14,11 @@ class Produk extends CI_Controller {
         
     }
 
-    public function insertCart($id)
+    public function detail($id)
     {
-        if (!is_logged_in()) {
-            
-            $this->session->set_flashdata('error', 'Anda belum login, silahkan login terlebih dahulu !');
-            redirect('/');
-        }
-
-        $this->model->insertCart($id);
+        $data['single'] = $this->model->get_detail($id);
+        
+        return $this->template->load('produk/detail', $data);
     }
 }
 

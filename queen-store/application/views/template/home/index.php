@@ -56,9 +56,9 @@
     ?>
     <div class="box">
         <div class="icons">
-            <a href="<?php echo base_url(); ?>index.php/produk/insertCart/<?php echo $p->id; ?>" class="fas fa-shopping-cart"></a>
+            <a href="<?php echo base_url(); ?>index.php/cart/insertOrUpdateCart/<?php echo $p->id; ?>" class="fas fa-shopping-cart"></a>
             <!-- <a href="#" class="fas fa-heart"></a> -->
-            <a href="#" class="fas fa-eye"></a>
+            <a href="<?php echo base_url(); ?>index.php/produk/detail/<?php echo $p->id; ?>" class="fas fa-eye"></a>
         </div>
         <div class="image">
             <img src="<?php echo base_url(); ?><?php echo get_gambar($p->id)[0]['gambar'] ?? 'https://blackmantkd.com/wp-content/uploads/2017/04/default-image.jpg' ?>" alt="">

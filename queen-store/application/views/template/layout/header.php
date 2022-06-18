@@ -61,7 +61,7 @@
             ?>
                     <div class="cart-item">
                         <span class="fas fa-times"></span>
-                        <img src="<?php echo base_url(); ?>assets/img/gta5.jpg" alt="">
+                        <img src="<?php echo base_url(get_gambar($c->id_produk)[0]['gambar']); ?>" alt="">
                         <div class="content">
                             <h3><?php echo $c->nama; ?> <sub>(<?php echo $c->qty; ?>)</sub></h3>
                             <div class="price"><?php echo "Rp. ".number_format($c->harga); ?></div>

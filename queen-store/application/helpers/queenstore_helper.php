@@ -37,3 +37,16 @@ if (!function_exists('get_cart'))
         // return !empty($ci->session->userdata('id_user'));
     }
 }
+
+if (!function_exists('get_metode'))
+{
+    function get_metode()
+    {
+        $ci=& get_instance();
+        $ci->load->database(); 
+        $metode = $ci->db->get('metode_pembayaran')->result();
+        
+        return $metode;
+        // return !empty($ci->session->userdata('id_user'));
+    }
+}

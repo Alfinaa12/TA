@@ -35,7 +35,7 @@ class Cart extends CI_Controller {
 
         if ($checkout) {
             $this->session->set_flashdata('success', 'Berhasil checkout cart !');
-            redirect('/order');
+            redirect('/order/checkout');
         }
     }
 

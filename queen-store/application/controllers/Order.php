@@ -9,7 +9,7 @@ class Order extends CI_Controller {
         $this->load->model('Order_model', 'model');
     }
 
-    public function index()
+    public function checkout()
     {
         return $this->template->load('checkout/index');
     }
@@ -21,10 +21,15 @@ class Order extends CI_Controller {
 
         if ($beli) {
             $this->session->set_flashdata('success', 'Anda berhasil melakukan order !');
-            redirect('/home');
+            redirect('/order/invoice');
         }
         // echo '<pre>';
         // var_dump($this->input->post('qty'));
         // die;
+    }
+
+    public function invoice()
+    {
+        $this->template->load('order/invoice');
     }
 }

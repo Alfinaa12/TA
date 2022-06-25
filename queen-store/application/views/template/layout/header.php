@@ -47,10 +47,12 @@
             </a>
             <div class="fas fa-bars" id="menu-btn"></div>
         </div>
-        <div class="search-form">
-            <input type="search" id="search-box" placeholder="Search...">
-            <label for="search-box" class="fas fa-search"></label>
-        </div>
+        <form action="<?php echo base_url(); ?>" method="GET">
+            <div class="search-form">
+                <input type="text" id="search-box" placeholder="Search..." name="search">
+                <label for="search-box" class="fas fa-search"></label>
+            </div>
+        </form>
 
 
         <div class="cart-items-container">

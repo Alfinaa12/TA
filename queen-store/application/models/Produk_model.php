@@ -22,11 +22,16 @@ class Produk_model extends CI_Model
             jika paramter limit ada, maka:
             select * from produk limit $limit order by id desc
         */
+
         if (!empty($limit)) {
             $this->db->limit($limit);
         }
 
         $this->db->order_by('produk.id', 'desc');
+
+        if (!empty($query = $this->input->get('search'))) {
+            $this->db->like('nama', $query);
+        }
         // $this->db->join('gambar', 'gambar.id_produk = produk.id', 'left');
         $q = $this->db->get('produk');
 

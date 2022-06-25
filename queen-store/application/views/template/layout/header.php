@@ -42,7 +42,7 @@
                     
                 </div>
             </a>
-            <a href="logout.php">
+            <a href="<?php echo base_url(); ?>index.php/auth/logout">
                 <div class="fas fa-sign-out-alt" id="logout-btn"></div>
             </a>
             <div class="fas fa-bars" id="menu-btn"></div>

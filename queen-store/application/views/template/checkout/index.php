@@ -4,7 +4,7 @@
     <div class="row">
         <iframe class="image" src="<?php echo base_url(); ?>assets/img/123.jpg" alt=""></iframe>"
 
-        <form action="<?php echo base_url(); ?>index.php/order/submit">
+        <form action="<?php echo base_url(); ?>index.php/order/submit" method="POST">
             <h3>Checkout</h3>
             <div class="inputBox">
                 <span class="fas fa-user"></span>
@@ -19,14 +19,14 @@
                 <input type="number" placeholder="Nomer telepon" name="telp" value="<?php echo $this->session->userdata('user')['telp']; ?>" disabled>
             </div>
             <div class="custom-select" width="100%">
-                <select>
+                <select name="metode" required>
                     <option selected disabled>Pilih Metode pembayaran:</option>
                     <?php foreach (get_metode() as $key => $metode): ?>
-                        <option value="<?php echo $metode->id;?>"><?php echo $metode->metode.' a/n '.$metode->atas_nama;?></option>
+                        <option value="<?php echo $metode->id;?>"><?php echo $metode->metode.' a/n '.$metode->atas_nama; ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
-            <input type="submit" value="Check Out" class="btn">
+            <button type="submit" class="btn">Check Out</button>
         </form>
     </div>
 </section>

@@ -308,7 +308,7 @@
     </div>
 </section>
 
-<section class="contact" id="contact">
+<!-- <section class="contact" id="contact">
     <h1 class="heading"> <span>Formulir</span>Order</h1>
 
     <div class="row">
@@ -343,7 +343,7 @@
             <input type="submit" value="Check Out" class="btn">
         </form>
     </div>
-</section>
+</section> -->
 
 <section class="contact" id="contact">
     <h1 class="heading"> <span>Contact</span>us</h1>

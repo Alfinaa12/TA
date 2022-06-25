@@ -699,3 +699,6 @@ section {
     background-color: rgba(0, 0, 0, 0.1);
     color: white;
   }
+  .total {
+    float:right;font-size:20px;color:white;
+  }

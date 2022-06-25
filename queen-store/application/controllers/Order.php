@@ -21,15 +21,29 @@ class Order extends CI_Controller {
 
         if ($beli) {
             $this->session->set_flashdata('success', 'Anda berhasil melakukan order !');
-            redirect('/order/invoice');
+            $order = $this->model->get_order_by_id($beli);
+            redirect('/order/index/'.$order->kode_order);
         }
         // echo '<pre>';
         // var_dump($this->input->post('qty'));
         // die;
     }
 
-    public function invoice()
+    public function index($kodeOrder)
     {
-        $this->template->load('order/invoice');
+        $data['order'] = $this->model->get_order_by_kode($kodeOrder);
+        $data['order_detail'] = $this->model->get_order_detail($kodeOrder);
+
+        $this->template->load('order/index', $data);
+    }
+
+    public function invoice($kodeOrder)
+    {
+        $data['order'] = $this->model->get_order_by_kode($kodeOrder);
+        $data['order_detail'] = $this->model->get_order_detail($kodeOrder);
+        // echo '<pre>';
+        // var_dump($data['order'], $data['order_detail']);
+        // die;
+        $this->load->view('template/invoice/index', $data);
     }
 }

@@ -64,6 +64,13 @@ class Auth extends CI_Controller {
             $this->load->view('template/auth/register');
 		}
     }
+
+    public function logout()
+    {
+        $this->session->unset_userdata(['user', 'id_user']);
+        $this->session->set_flashdata('success', 'Anda berhasil logout !');
+        redirect('home');
+    }
 }
 
 /* End of file Login.php and path \application\controllers\Login\Login.php */

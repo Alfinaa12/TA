@@ -30,7 +30,7 @@
             <a href="<?php echo base_url(); ?>#product">Product</a>
             <a href="<?php echo base_url(); ?>#orders">Orders</a>
             <a href="<?php echo base_url(); ?>#contact">Contact</a>
-            <a href="review">Review</a>
+            <a href="<?php echo base_url(); ?>#review">Review</a>
 
         </nav>
 

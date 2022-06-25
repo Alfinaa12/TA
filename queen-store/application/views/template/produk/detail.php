@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="column">
                         <div class="image" style="float:left;">
-                            <img src="http://localheart/TA/queen-store//assets/img/gta5.jpg" alt="">
+                            <img src="<?php echo base_url(); ?><?php echo get_gambar($single['id'])[0]['gambar']  ?>" alt="">
                         </div>
                     </div>
                     <div class="column">
